@@ -7,7 +7,7 @@ defmodule SimplePool do
   Takes an enumerable and for every chuck it maps over the collection
   and performs the given function asynchronously
   """
-  @spec chunk_async(Enum.t, (any() -> any()), integer()) :: Enum.t
+  @spec chunk_async(Enum.t, (any() -> any()), integer()) :: list()
   def chunk_async(enumerable, fun, size) do
     chunked = Enum.chunk(enumerable, size)
     do_perform(chunked, fun, [])
@@ -17,7 +17,7 @@ defmodule SimplePool do
   # Private Functions #
   #####################
 
-  defp do_perform([], fun, acc), do: acc
+  defp do_perform([], fun, acc), do: List.flatten(acc)
   defp do_perform([chunk | rest], fun, acc) do
     tasks = do_async(chunk, fun, [])
     returns = wait_for(tasks, [])
