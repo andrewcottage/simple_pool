@@ -47,8 +47,8 @@ defmodule SimplePool.Mixfile do
       maintainers: ["Andrew Cottage"],
       licenses: ["Apache 2.0"],
       links: %{
-        "GitHub" => "https://github.com/andrewcottage/simple_pool",
-        "Docs" => "http://ericmj.github.io/postgrex/"
+        "GitHub" => "https://github.com/andrewcottage/simple_pool"
+        # "Docs" => "http://ericmj.github.io/postgrex/"
       }
     ]
   end
