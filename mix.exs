@@ -43,7 +43,7 @@ defmodule SimplePool.Mixfile do
 
   defp package do
     [
-      name: :postgrex,
+      name: :simple_pool,
       maintainers: ["Andrew Cottage"],
       licenses: ["Apache 2.0"],
       links: %{
