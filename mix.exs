@@ -2,12 +2,16 @@ defmodule SimplePool.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :simple_pool,
-     version: "0.1.0",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :simple_pool,
+      version: "0.1.0",
+      elixir: "~> 1.4",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps(),
+      description: description(),
+      package: package()
+    ]
   end
 
   # Configuration for the OTP application
@@ -28,6 +32,24 @@ defmodule SimplePool.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:ex_doc, "~> 0.14", only: :dev, runtime: false}]
+  end
+
+  defp description do
+    """
+    A simple library to make inline worker pools easy
+    """
+  end
+
+  defp package do
+    [
+      name: :postgrex,
+      maintainers: ["Andrew Cottage"],
+      licenses: ["Apache 2.0"],
+      links: %{
+        "GitHub" => "https://github.com/andrewcottage/simple_pool",
+        "Docs" => "http://ericmj.github.io/postgrex/"
+      }
+    ]
   end
 end
