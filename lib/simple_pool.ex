@@ -17,6 +17,7 @@ defmodule SimplePool do
   # Private Functions #
   #####################
 
+  defp do_perform([], fun, acc), do: acc
   defp do_perform([chunk | rest], fun, acc) do
     tasks = do_async(chunk, fun, [])
     returns = wait_for(tasks, [])
