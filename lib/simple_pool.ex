@@ -34,7 +34,7 @@ defmodule SimplePool do
 
   defp wait_for([], return), do: Enum.reverse(return)
   defp wait_for([task|rest], return) do
-    value = Task.await(task)
+    value = Task.await(task, 30_000)
     wait_for(rest, [value|return])
   end
 end
